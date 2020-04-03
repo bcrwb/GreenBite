@@ -6,4 +6,32 @@ body {
   h1 {
     color: #244751;
   }
+
+
+  header {
+    background-image: url(./images/3.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 0 auto;
+  }
+
+
+  h1{
+    font-family: "Good Vibes", cursive;
+    color: white;
+    clear: both;
+    padding-top: 140px;
+    font-size: 120px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2{
+    text-align: center;
+    color: white;
+    font-family: "Barlow";
+  }
 }
+
