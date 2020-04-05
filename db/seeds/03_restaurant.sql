@@ -1,5 +1,5 @@
 INSERT INTO restaurants (
   name, phone, province, city, street, postal_code
 ) VALUES (
-  'Some Thai Place', '18641438828', 'BC', 'Vancouver', 'Street Dr.', 'F3J8I1'
+  'Green Bite', '647-898-5252', 'ON', 'Toronto', 'Dover St', 'L6V 3XY'
 );
