@@ -1,0 +1,20 @@
+<a href ='./'>home</a>
+<p>cart</p>
+
+<a href ='./checkout'>checkout</a>
+<a href ='./about'>about</a>
+<a href ='./menu'>menu</a>
+
+<ul>
+    <%if(option1name){%>
+    <li><%=option1name%> <%=option1%></li>
+    <li><%=option2name%> <%=option2%></li>
+<%} else{%>
+<p>empty cart</p>
+<%}%>
+</ul>
+
+<form action ="./summary" method ="POST">
+
+<button>Place Order</button>
+</form>
