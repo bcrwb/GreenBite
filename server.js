@@ -52,6 +52,17 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/checkout", (req, res) => {
+  res.render("../views/checkout")
+  
+});
+
+
+app.post("/orderSummary", (req, res) => {
+  res.render("../views/orderSummary")
+  
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
