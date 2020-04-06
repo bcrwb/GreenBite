@@ -47,9 +47,12 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index", {
-    name: "brent"
-  });
+return db.query(`SELECT * FROM users`)
+.then(data => {
+  const users = data.rows;
+  res.json({ users });
+})
+  res.render("index")
 });
 
 app.get("/checkout", (req, res) => {
