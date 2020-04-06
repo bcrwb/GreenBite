@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 5000;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -47,7 +47,9 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {
+    name: "brent"
+  });
 });
 
 app.listen(PORT, () => {
