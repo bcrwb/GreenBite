@@ -47,16 +47,50 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-return db.query(`SELECT * FROM users`)
-.then(data => {
-  const users = data.rows;
-  res.json({ users });
-})
   res.render("index")
+//   db.query(`INSERT INTO users (user_token,first_name,last_name,email,password,phone_number)
+//   VALUES ('yoyo','hammad','seehar','brent@brent.com','hello','6476690083')`)
+// .then(
+// db.query(`SELECT * FROM users`)
+// .then(data => {
+//   const user = data.rows
+//   // const user1 = data.rows[0].first_name;
+//   // const user2 = data.rows[1].first_name;
+//   res.json({user});
+// }))
+ 
 });
 
 app.get("/checkout", (req, res) => {
   res.render("../views/checkout")
+  
+});
+
+app.post("/checkout", (req, res) => {
+
+  db.query(`SELECT first_name FROM users WHERE phone_number = '${req.body.burger}';`)
+  .then(data => {
+    const user = data.rows[0].first_name;
+    
+
+    res.render("../views/checkout",{
+    user,
+    phoneNumber: req.body.burger
+  })
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+
+
+
+
+  // let array = Object.keys(req.body);
+  // let number = req.body.burger
+  
+  
   
 });
 
