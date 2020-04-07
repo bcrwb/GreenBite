@@ -2,7 +2,5 @@ DROP TABLE IF EXISTS order_items CASCADE;
 
 CREATE TABLE order_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
-  total_price INTEGER REFERENCES price(id) ON DELETE CASCADE,
-  total_menu_items INTEGER REFERENCES menu_items(id) ON DELETE CASCADE 
+  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE
 );
