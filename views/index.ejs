@@ -67,7 +67,7 @@
             <p class="text-white-50 mb-4">The friendly greeting you get when you visit GreenBite isn't a gimmick. It's
               how we do business, and always have. Sure, we've grown, but our aim is still to be like a hometown
               neighbor - reliable, valued, trustworthy. </p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#menu">Order Now!</a>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#menu">Checkout Our Menu!</a>
           </div>
         </div>
       </div>
@@ -76,6 +76,7 @@
 <!-- MENU -->
 <section class="menu" id="menu">
   <h5>Menu</h5>
+  <form action='./checkout' method ='POST'>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -97,9 +98,11 @@
             <li>Sesame bun</li>
             <li>Optional Vegan Cheese</li>
           </ul>
-          <button type="button" class="btn btn-dark">-</button>
+          <!-- <button type="button" class="btn btn-dark">-</button>
           <span>0</span>
-          <button type="button" class="btn btn-dark">+</button>
+          <button type="button" class="btn btn-dark">+</button> -->
+          <p>Quantity</p>
+          <input name ="burger" type='number' min ='0' placeholder="0">
 
         </div>
       </div>
@@ -257,7 +260,7 @@
       </div>
     </div>
   </div>
-
+  
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -267,6 +270,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<button class="btn btn-dark btn-xl js-scroll-trigger">Place Order</button>
+</form>
 </section>
 
 </main>
