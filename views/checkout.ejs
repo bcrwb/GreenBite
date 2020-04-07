@@ -12,6 +12,32 @@
     <link href="./css/form-validation.css" rel="stylesheet">
 
     <title>Checkout</title>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparant static-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">GreenBite</a>
+          <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="./">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./#menu">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./checkout">Cart</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
   </head>
   <body class="bg-light">
 
@@ -31,10 +57,10 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Product name</h6>
+                <h6 class="my-0"><%=user%></h6>
                 <small class="text-muted">Brief description</small>
               </div>
-              <span class="text-muted">$12</span>
+              <span class="text-muted">Quantity <%=phoneNumber%></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
@@ -58,7 +84,7 @@
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Billing address</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate method="POST" action ="/orderSummary">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
