@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 // Web server config
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -35,47 +35,36 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const menuRoutes = require("./routes/menu");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+app.use("/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/menu", menuRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index")
-//   db.query(`INSERT INTO users (user_token,first_name,last_name,email,password,phone_number)
-//   VALUES ('yoyo','hammad','seehar','brent@brent.com','hello','6476690083')`)
-// .then(
-// db.query(`SELECT * FROM users`)
-// .then(data => {
-//   const user = data.rows
-//   // const user1 = data.rows[0].first_name;
-//   // const user2 = data.rows[1].first_name;
-//   res.json({user});
-// }))
- 
-});
 
 app.get("/checkout", (req, res) => {
   res.render("../views/checkout")
-  
+
 });
 
 app.post("/checkout", (req, res) => {
+  let array = Object.keys(req.body);
+  let number = req.body.burger
 
-  db.query(`SELECT first_name FROM users WHERE phone_number = '${req.body.burger}';`)
+db.query(`SELECT  FROM users WHERE phone_number = '${req.body.burger}';`)
+// db.query(`SELECT .... phone_number = $1`, [req.body.burger])
   .then(data => {
     const user = data.rows[0].first_name;
-    
-
     res.render("../views/checkout",{
     user,
-    phoneNumber: req.body.burger
+    phoneNumber: req.body.burger,
   })
   })
   .catch(err => {
@@ -87,17 +76,26 @@ app.post("/checkout", (req, res) => {
 
 
 
-  // let array = Object.keys(req.body);
-  // let number = req.body.burger
-  
-  
-  
+
+
+
 });
 
 
 app.post("/orderSummary", (req, res) => {
   res.render("../views/orderSummary")
-  
+
+});
+
+app.get("/checkout", (req, res) => {
+  res.render("../views/checkout")
+
+});
+
+
+app.post("/orderSummary", (req, res) => {
+  res.render("../views/orderSummary")
+
 });
 
 app.listen(PORT, () => {
