@@ -7,13 +7,17 @@
 
 const express = require('express');
 const router = express.Router();
+const twilio = require('twilio')
 
 module.exports = (db) => {
-  router.get("/checkout", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+  router.post("/", (req, res) => {
+    db.query(`INSERT INTO users (user_token,first_name,last_name,email,password,phone_number)
+    VALUES (123,'brent','carey','brent@bren.com','password','6476690083') RETURNING *;`)
       .then(data => {
         const users = data.rows;
-        res.json({ users });
+        res.render('../views/orderSummary', {
+          users
+        });
       })
       .catch(err => {
         res
@@ -23,3 +27,4 @@ module.exports = (db) => {
   });
   return router;
 };
+

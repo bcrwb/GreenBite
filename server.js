@@ -39,7 +39,7 @@ const menuRoutes = require("./routes/menu");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/users", usersRoutes(db));
+app.use("/orderSummary", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/checkout", menuRoutes(db));
 // Note: mount other resources here, using the same pattern above
@@ -82,18 +82,15 @@ app.get("/", (req, res) => {
 // });
 
 
-app.post("/orderSummary", (req, res) => {
-  res.render("../views/orderSummary")
+// app.post("/orderSummary", (req, res) => {
+//   res.render("../views/orderSummary")
 
-});
-
-
+// });
 
 
-app.post("/orderSummary", (req, res) => {
-  res.render("../views/orderSummary")
 
-});
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
