@@ -7,5 +7,4 @@ CREATE TABLE items (
   description TEXT,
   prep_time SMALLINT,
   cost INTEGER NOT NULL,
-  quantity SMALLINT
 );
