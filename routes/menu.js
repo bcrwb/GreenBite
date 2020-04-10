@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-      
+
 module.exports = (db) => {
   router.post("/", (req, res) => {
     db.query(`SELECT * FROM items;`)
@@ -10,8 +10,9 @@ module.exports = (db) => {
         let userData = req.body
         let foodArray = [];
 
+
         for (let item in userData) {
-             if (userData[item] !== '') {
+          if (userData[item] !== '') {
             foodArray.push({ name: item, quantity: Number(userData[item]) })
           };
         }
@@ -29,12 +30,13 @@ module.exports = (db) => {
           quantity += foodArray[b].quantity
 
         }
-       
+
         res.render('../views/checkout', {
           orderItem,
           quantity,
-          foodArray
-       
+          foodArray,
+
+
         });
       })
       .catch(err => {

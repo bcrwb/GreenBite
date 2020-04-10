@@ -2,10 +2,10 @@ DROP TABLE IF EXISTS orders CASCADE;
 
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
-  customer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
+  item_name VARCHAR(20),
+  item_quantity INTEGER NOT NULL,
+  item_price INTEGER NOT NULL,
+  item_order_id INTEGER REFERENCES users(id),
   time_placed TIMESTAMPTZ NOT NULL,
-  time_confirmed TIMESTAMPTZ,
-  time_complete TIMESTAMPTZ,
-  time_estimate TIMESTAMPTZ
+  time_complete TIMESTAMPTZ
 );

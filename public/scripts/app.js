@@ -1,15 +1,15 @@
-// $(() => {
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/api/users"
-  // }).done((users) => {
-  //   for(user of users) {
-  //     $("<div>").text(user.name).appendTo($("body"));
-  //   }
-  // });;
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/api/users"
+  }).done((users) => {
+    for (user of users) {
+      $("<div>").text(user.name).appendTo($("body"));
+    }
+  });;
   const getMenu = require(getMenu);
 
-  const createMenuItem = function() {
+  const createMenuItem = function () {
     return `<div class="card mb-4 shadow-sm">
         <div class="card-header">
           <h4 class="my-0 font-weight-normal">${items.name}</h4>

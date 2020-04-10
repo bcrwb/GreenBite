@@ -50,47 +50,11 @@ app.get("/", (req, res) => {
 
 });
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 
-// app.get("/checkout", (req, res) => {
-//   res.render("../views/checkout")
+app.get("/checkout", (req, res) => {
+  res.render("../views/checkout")
 
-// });
-
-// app.post("/checkout", (req, res) => {
-//   let array = Object.keys(req.body);
-//   let number = req.body.burger
-
-//   db.query(`SELECT  FROM users WHERE phone_number = '${req.body.burger}';`)
-//     // db.query(`SELECT .... phone_number = $1`, [req.body.burger])
-//     .then(data => {
-//       const user = data.rows[0].first_name;
-//       res.render("../views/checkout", {
-//         user,
-//         phoneNumber: req.body.burger,
-//       })
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-
-
-// });
-
-
-// app.post("/orderSummary", (req, res) => {
-//   res.render("../views/orderSummary")
-
-// });
-
-
-
-
-
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
